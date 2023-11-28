@@ -114,3 +114,15 @@ contract ERC20 is IERC20 {
         uint amount
     ) internal virtual {}
 }
+
+
+contract MCSToken is ERC20 {
+    constructor(address shop) ERC20("MCSToken", "MCT", 20, shop) {}
+}
+
+contract MShop {
+    IERC20 public token;
+    address payable public owner;
+    event Bought(uint _amount, address indexed _buyer);
+    event Sold(uint _amount, address indexed _seller);
+}
